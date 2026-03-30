@@ -6,11 +6,11 @@ A Claude Code plugin with productivity skills for committing code, writing user 
 
 | Command              | What it does                                                |
 | -------------------- | ----------------------------------------------------------- |
+| `/run-app`           | Detect project type, check env vars, and start/restart on localhost |
+| `/research-apis`     | Research third-party APIs with setup guides and curl examples |
 | `/push`              | Commit all changes and push to the remote repository        |
 | `/write-user-story`  | Write user stories with acceptance criteria                  |
 | `/write-user-guide`  | Create step-by-step user guides for web app features        |
-| `/research-apis`     | Research third-party APIs with setup guides and curl examples |
-| `/run-app`           | Detect project type, check env vars, and start/restart on localhost |
 
 ## Installation
 
@@ -35,11 +35,11 @@ claude plugin remove kit
 ## Usage
 
 ```
+/run-app
+/research-apis
 /push
 /write-user-story
 /write-user-guide
-/research-apis
-/run-app
 ```
 
 ## License
