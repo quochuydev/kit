@@ -1,0 +1,6 @@
+{
+  "name": "kit",
+  "version": "0.1.0",
+  "description": "A Claude Code plugin with handy developer shortcuts like /push to commit and push changes.",
+  "license": "MIT"
+}
