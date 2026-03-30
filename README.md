@@ -9,6 +9,7 @@ A Claude Code plugin with productivity skills for committing code, writing user 
 | `/push`              | Commit all changes and push to the remote repository        |
 | `/write-user-story`  | Write user stories with acceptance criteria                  |
 | `/write-user-guide`  | Create step-by-step user guides for web app features        |
+| `/research-apis`     | Research third-party APIs with setup guides and curl examples |
 
 ## Installation
 
@@ -36,6 +37,7 @@ claude plugin remove kit
 /push
 /write-user-story
 /write-user-guide
+/research-apis
 ```
 
 ## License
