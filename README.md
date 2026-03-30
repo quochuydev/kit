@@ -21,8 +21,8 @@ claude plugin install kit
 ## Updating
 
 ```bash
-claude plugin marketplace update kit
-claude plugin update kit@kit
+claude plugin marketplace update kit-marketplace
+claude plugin update kit@kit-marketplace
 ```
 
 ## Remove
