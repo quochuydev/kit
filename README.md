@@ -10,6 +10,7 @@ A Claude Code plugin with productivity skills for committing code, writing user 
 | `/write-user-story`  | Write user stories with acceptance criteria                  |
 | `/write-user-guide`  | Create step-by-step user guides for web app features        |
 | `/research-apis`     | Research third-party APIs with setup guides and curl examples |
+| `/run-app`           | Detect project type, check env vars, and start/restart on localhost |
 
 ## Installation
 
@@ -38,6 +39,7 @@ claude plugin remove kit
 /write-user-story
 /write-user-guide
 /research-apis
+/run-app
 ```
 
 ## License
