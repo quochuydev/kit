@@ -1,14 +1,16 @@
-# kit — Claude Code Plugin
+# kit — Claude Code Kit
+
+A Claude Code plugin with productivity skills for committing code, writing user stories, and generating user guides.
 
 ## Skills
 
-| Command | What it does                                                |
-| ------- | ----------------------------------------------------------- |
-| `/push` | Commit all changes and push to the remote repository        |
+| Command              | What it does                                                |
+| -------------------- | ----------------------------------------------------------- |
+| `/push`              | Commit all changes and push to the remote repository        |
+| `/write-user-story`  | Write user stories with acceptance criteria                  |
+| `/write-user-guide`  | Create step-by-step user guides for web app features        |
 
 ## Installation
-
-In Claude Code, add the kit marketplace and install the plugin:
 
 ```bash
 claude plugin marketplace add quochuydev/kit
@@ -32,6 +34,8 @@ claude plugin remove kit
 
 ```
 /push
+/write-user-story
+/write-user-guide
 ```
 
 ## License
