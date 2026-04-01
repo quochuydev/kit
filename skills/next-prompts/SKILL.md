@@ -1,54 +1,55 @@
 ---
 name: next-prompts
-description: Suggest 5 short, actionable prompts the user can copy-paste into Claude Code to continue their current work. Use when the user wants prompt ideas, next steps, or invokes /next-prompts.
+description: Suggest 5 short prompts to copy-paste into Claude Code based on the user's argument or current project context. Use when the user wants prompt ideas, next steps, or invokes /next-prompts.
 user_invocable: true
 ---
 
 # Next Prompts
 
-Analyze the user's current project and recent work, then suggest 5 short prompts they can copy-paste directly into Claude Code.
+Generate 5 short, actionable prompts the user can copy-paste into Claude Code.
 
 ## Process
 
-### Step 1 — Understand the current context
+### Step 1 — Determine the topic
 
-Gather context by reading (do NOT modify anything):
+Check if the user provided an argument after `/next-prompts`:
 
-1. **Git status** — any uncommitted changes, current branch, recent commits (`git log --oneline -10`)
-2. **Project type** — scan for `package.json`, `pyproject.toml`, `go.mod`, `Cargo.toml`, etc.
-3. **Open issues** — if this is a GitHub repo, check `gh issue list --limit 5` (skip silently if `gh` is not available or not authenticated)
-4. **TODOs in code** — quickly scan for `TODO`, `FIXME`, `HACK`, `XXX` comments
-5. **Test coverage gaps** — look for files with no corresponding test file
-6. **README / docs state** — check if docs are missing or outdated relative to code
+- If an argument is provided (e.g., `/next-prompts authentication`), use it as the topic.
+- If no argument is provided, infer the topic from the current project context:
+  1. Read `package.json`, `README.md`, or other project markers to understand the stack.
+  2. Run `git log --oneline -5` to see recent work.
+  3. Run `git diff --name-only HEAD~3..HEAD` to see recently changed files.
+  4. Use these signals to suggest prompts relevant to what the user is actively working on.
 
 ### Step 2 — Generate 5 prompts
 
-Based on the context, produce exactly **5 prompts** that are:
+Create exactly 5 prompts that are:
 
-- **Short** — one sentence each, under 100 characters when possible
-- **Actionable** — each prompt can be pasted directly into Claude Code and executed immediately
-- **Diverse** — cover different types of work (e.g., fix a bug, add a feature, write tests, refactor, improve docs)
-- **Relevant** — tied to the actual state of the project, not generic advice
-- **Prioritized** — ordered from most impactful to least
+- **Short** — each prompt should be 1 sentence, under 80 characters when possible
+- **Actionable** — each prompt should be something Claude Code can directly act on
+- **Specific** — reference the actual stack, framework, or domain from the project
+- **Varied** — cover different types of work (e.g., feature, test, refactor, debug, docs)
+- **Progressive** — order from simplest/quickest to most involved
 
-### Step 3 — Present the prompts
+### Step 3 — Output the prompts
 
-Output the prompts in this exact format so they are easy to scan and copy:
+Display the prompts in this exact format:
 
 ```
-Here are 5 prompts for your next move:
+💡 Next prompts (<topic>):
 
-1. <prompt text>
-2. <prompt text>
-3. <prompt text>
-4. <prompt text>
-5. <prompt text>
+1. <prompt>
+2. <prompt>
+3. <prompt>
+4. <prompt>
+5. <prompt>
 ```
 
 ## Rules
 
-- Do NOT modify any files — this skill is read-only
-- Do NOT suggest prompts that require information you don't have (e.g., "fix the bug in ticket #123" when you haven't checked issues)
-- Do NOT suggest generic prompts like "write tests" — be specific (e.g., "add unit tests for the `parseConfig` function in src/config.ts")
-- Keep each prompt self-contained — the user should be able to paste it without extra context
-- If the project is clean with nothing obvious to do, suggest improvement-oriented prompts (performance, refactoring, documentation, CI/CD)
+- ALWAYS output exactly 5 prompts — no more, no less
+- Keep prompts concise — they should be easy to scan and copy
+- Do NOT include slash commands in the generated prompts — these are plain prompts for Claude Code
+- Do NOT execute any of the prompts — only suggest them
+- Do NOT read or modify project source code beyond what is needed to understand context
+- If the topic is too vague to generate useful prompts, ask the user to be more specific
