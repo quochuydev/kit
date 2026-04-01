@@ -9,6 +9,7 @@ A Claude Code plugin with productivity skills for committing code, writing user 
 | `/research-apis`    | Research third-party APIs with setup guides and curl examples       |
 | `/write-user-story` | Write user stories with acceptance criteria                         |
 | `/run-app`          | Detect project type, check env vars, and start/restart on localhost |
+| `/next-prompts`     | Suggest 5 short prompts to copy-paste into Claude Code              |
 | `/push`             | Commit all changes and push to the remote repository                |
 | `/write-user-guide` | Create step-by-step user guides for web app features                |
 
@@ -35,10 +36,11 @@ claude plugin remove kit
 ## Usage
 
 ```
+/next-prompts
 /research-apis
-/write-user-story
 /run-app
 /push
+/write-user-story
 /write-user-guide
 ```
 
