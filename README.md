@@ -9,7 +9,6 @@ A plugin with productivity skills for committing code, writing user stories, and
 | `/research-apis`    | Research third-party APIs with setup guides and curl examples       |
 | `/write-user-story` | Write user stories with acceptance criteria                         |
 | `/run-app`          | Detect project type, check env vars, and start/restart on localhost |
-| `/next-prompts`     | Suggest 5 short prompts to copy-paste                               |
 | `/push`             | Commit all changes and push to the remote repository                |
 | `/write-user-guide` | Create step-by-step user guides for web app features                |
 
@@ -60,7 +59,6 @@ npx skills remove quochuydev/kit -a opencode
 ## Usage
 
 ```
-/next-prompts
 /research-apis
 /run-app
 /push
