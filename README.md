@@ -11,6 +11,7 @@ A plugin with productivity skills for committing code, writing user stories, and
 | `/run-app`          | Detect project type, check env vars, and start/restart on localhost |
 | `/push`             | Commit all changes and push to the remote repository                |
 | `/write-user-guide` | Create step-by-step user guides for web app features                |
+| `/fix-english`      | Rewrite a sentence into correct English with tone alternatives      |
 
 ## Installation
 
@@ -64,6 +65,7 @@ npx skills remove quochuydev/kit -a opencode
 /push
 /write-user-story
 /write-user-guide
+/fix-english
 ```
 
 ## License
