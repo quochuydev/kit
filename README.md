@@ -12,6 +12,7 @@ A plugin with productivity skills for committing code, writing user stories, and
 | `/push`             | Commit all changes and push to the remote repository                |
 | `/write-user-guide` | Create step-by-step user guides for web app features                |
 | `/fix-english`      | Rewrite a sentence into correct English with tone alternatives      |
+| `/repo-meta`        | Suggest GitHub repo name, description, tags, and a logo prompt      |
 
 ## Installation
 
@@ -66,6 +67,7 @@ npx skills remove quochuydev/kit -a opencode
 /write-user-story
 /write-user-guide
 /fix-english
+/repo-meta
 ```
 
 ## License
