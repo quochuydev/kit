@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "kit",
-      "version": "0.1.8",
+      "version": "0.1.9",
       "source": "./",
       "description": "Claude Code Kit",
       "license": "MIT",
