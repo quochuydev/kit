@@ -10,13 +10,10 @@ Inspect the current working directory and propose GitHub metadata the user can p
 
 ## Process
 
-1. Detect the project. Look at the working directory for signals — in rough priority order:
-   - `package.json` (name, description, keywords, dependencies)
-   - `pyproject.toml` / `setup.py` / `requirements.txt`
-   - `Cargo.toml`, `go.mod`, `composer.json`, `Gemfile`, `pubspec.yaml`
-   - `README.md` / `README*` (title, tagline, headings)
-   - Top-level folders (`src/`, `app/`, `skills/`, `extension/`, `cli/`, etc.) to infer project type
-   - `.claude-plugin/`, `manifest.json`, or similar to infer it's a plugin/extension
+1. Detect the project. Read only what's needed — in priority order, stop once you have enough:
+   - `README.md` (title, tagline, first paragraph) — usually the best single source
+   - The primary manifest for the stack: `package.json`, `pyproject.toml`, `Cargo.toml`, `go.mod`, or `.claude-plugin/`
+   - Top-level folder names only if the above are thin
 2. If signals are thin or conflicting, ASK one short clarifying question (e.g. "Is this a CLI, library, or web app?") before generating suggestions. Otherwise skip straight to output.
 3. Produce the output below. Offer **3 repo name options** so the user can pick one.
 
@@ -30,7 +27,7 @@ Inspect the current working directory and propose GitHub metadata the user can p
 2. `{kebab-case-name-2}` — {why it fits}
 3. `{kebab-case-name-3}` — {why it fits}
 
-**Description** (≤ 350 chars, GitHub "About" field):
+**Description** (80–100 chars, GitHub "About" field):
 > {one-sentence description, no trailing period unless it reads better with one}
 
 **Topics** (GitHub tags, lowercase, hyphenated, max 20):
@@ -49,7 +46,7 @@ Inspect the current working directory and propose GitHub metadata the user can p
 - Don't reuse the user's GitHub username as a prefix unless it's already their convention in the folder.
 
 ### Description
-- One sentence, ≤ 350 characters (GitHub's limit).
+- One sentence, **80–100 characters** — aim for this range, don't go over.
 - Lead with the noun (what it IS), then the verb (what it does). Example: "CLI that converts Markdown to styled PDFs."
 - No marketing fluff ("blazing fast", "next-gen"). No emojis unless the user explicitly asks.
 
